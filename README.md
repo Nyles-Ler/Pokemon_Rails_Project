@@ -1,24 +1,7 @@
-# README
+# Working with Data
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## The data sets I'll be using:
+PokeAPI located at https://pokeapi.co/
+- This dataset is a open source API with no authentication required.
+Pokemon.json throught github at https://github.com/fanzeyi/pokemon.json
+- This dataset is formatted in JSON.
