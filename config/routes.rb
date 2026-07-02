@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   get 'pokemon/index'
   get 'pokemon/show'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Makes the homepage show the Pokemon index page
+  root "pokemon#index"
+
+  # Created routes for the Pokemon resource, but only for the index and show actions
+  resources :pokemon, only: [:index, :show]
+
 end

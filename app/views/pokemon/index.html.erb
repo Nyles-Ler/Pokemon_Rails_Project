@@ -1,2 +1,9 @@
-<h1>Pokemon#index</h1>
-<p>Find me in app/views/pokemon/index.html.erb</p>
+<h1>Pokemon Rails Explorer</h1>
+
+<ul>
+  <% @pokemon.each do |pokemon| %>
+    <li>
+      <%= link_to pokemon.name, pokemon_path(pokemon) %>
+    </li>
+  <% end %>
+</ul>

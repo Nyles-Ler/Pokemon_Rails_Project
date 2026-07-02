@@ -1,2 +1,25 @@
-<h1>Pokemon#show</h1>
-<p>Find me in app/views/pokemon/show.html.erb</p>
+<h1><%= @pokemon.name %></h1>
+
+<%= image_tag @pokemon.sprite_url, alt: @pokemon.name, width: 200 %>
+
+<p><strong>Pokedex Number:</strong> <%= @pokemon.pokedex_number %></p>
+<p><strong>Height:</strong> <%= @pokemon.height %></p>
+<p><strong>Weight:</strong> <%= @pokemon.weight %></p>
+<p><strong>Base Experience:</strong> <%= @pokemon.base_experience %></p>
+
+<p>
+  <strong>Types:</strong>
+  <%= @pokemon.types.map(&:name).join(", ") %>
+</p>
+
+</h2>Reviews</h2>
+
+<% @pokemon.reviews.each do |review| %>
+  <p>
+    <strong><%= review.username %></strong>
+    rated this <%= review.rating %>/5
+  </p>
+  <p><%= review.comment %></p>
+<% end %>
+
+<p><%= link_to "Back to all Pokémon", pokemon_index_path %></p>
