@@ -25,12 +25,20 @@ puts "Existing data cleared."
 
 puts "Importing data from PokeAPI..."
 
-# Loop through the first 25 Pokémon IDs and fetch their data from the PokeAPI
-(1..25).each do |pokemon_id|
+# Loop through the first 50 Pokémon IDs and fetch their data from the PokeAPI
+(1..50).each do |pokemon_id|
   # Build the API URL for the current Pokémon ID
   url = "https://pokeapi.co/api/v2/pokemon/#{pokemon_id}"
   response = URI.open(url).read
   data = JSON.parse(response)
+
+  # Secondary data source for Pokémon images
+  # Convert the Pokémon ID to a 3-digit string for the image URL
+  # Convert 1 to 001
+  image_number = pokemon_id.to_s.rjust(3, "0")
+
+  # Build the image URL using the formatted number
+  image_url = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/#{image_number}.png"
 
   # Create the Pokémon record
   pokemon = Pokemon.create!(
@@ -39,7 +47,8 @@ puts "Importing data from PokeAPI..."
     height: data["height"],
     weight: data["weight"],
     base_experience: data["base_experience"] || 0,
-    sprite_url: data["sprites"]["front_default"]
+    # Use the secondary image URL
+    sprite_url: image_url
   )
 
   # Create associated Type
