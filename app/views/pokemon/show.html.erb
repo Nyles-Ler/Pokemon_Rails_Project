@@ -60,24 +60,33 @@
 
         <h3>User Reviews</h3>
 
-        <% @pokemon.reviews.each do |review| %>
+          <!-- Feature 5.2 - ERB Conditional -->
+          <!-- Displays all reviews if they exist; otherwise shows a message -->
+          <!-- Check if this Pokemon has any reviews -->
+          <% if @pokemon.reviews.any? %>
+            <!-- Loop through each review and display it -->
+            <% @pokemon.reviews.each do |review| %>
 
-          <!-- Creates a bottom border between each review -->
-          <div class="border-bottom mb-3 pb-3">
+              <div class="border-bottom mb-3 pb-3">
 
-            <strong><%= review.username %></strong>
+                <strong><%= review.username %></strong>
 
-            <!-- Bootstrap badge with yellow background -->
-            <span class="badge bg-warning text-dark">
+                <span class="badge bg-warning text-dark">
+                  <%= review.rating %>/5
+                </span>
 
-              <%= review.rating %>/5
-            </span>
+                <p class="mt-2">
+                  <%= review.comment %>
+                </p>
 
-            <p class="mt-2">
-              <%= review.comment %>
-            </p>
+              </div>
 
-          </div>
+            <% end %>
+          <% else %>
+
+          <!-- Display this message if there are no reviews -->
+          <p class="text-muted">No reviews have been added for this Pokémon.</p>
+
         <% end %>
       </div>
     </div>
