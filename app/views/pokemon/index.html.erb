@@ -41,4 +41,10 @@
       </div>
     </div>
   <% end %>
+  <!-- Feature 3.5 - Pagination -->
+  <div class="d-flex justify-content-center mt-4">
+    <nav aria-label="Pokemon page navigation">
+      <%= paginate @pokemon %>
+    </nav>
+  </div>
 </div>

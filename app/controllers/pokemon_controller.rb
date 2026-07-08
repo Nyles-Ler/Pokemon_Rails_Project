@@ -5,6 +5,10 @@ class PokemonController < ApplicationController
     else
       @pokemon = Pokemon.all
     end
+
+    #
+    @pokemon = @pokemon.order(:pokedex_number).page(params[:page]).per(8)
+
   end
 
   def show
