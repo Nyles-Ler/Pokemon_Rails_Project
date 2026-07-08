@@ -17,14 +17,13 @@
       <div class="card h-100 shadow-sm text-center">
         <!-- Using Bootstrap card body to add padding -->
         <div class="card-body">
-          <!-- ERB Rails helper to generate image, automatic image scaling with a margin bottom -->
+          <!-- Rails helper to generate image, automatic image scaling with a margin bottom -->
           <%= image_tag pokemon.sprite_url, alt: pokemon.name, class: "img-fluid mb-3", style: "max-height: 140px;" %>
 
           <!-- Using Bootstrap card title -->
           <h5 class="card-title"><%= pokemon.name %></h5>
 
           <p class="text-muted">
-            <!-- ERB -->
             #<%= pokemon.pokedex_number.to_s.rjust(3, "0") %>
           </p>
 
@@ -36,7 +35,7 @@
             <% end %>
           </p>
 
-          <!-- ERB Using Bootstrap to create a button with red theme -->
+          <!-- Using Bootstrap to create a button with red theme -->
           <%= link_to "View Details", pokemon_path(pokemon), class: "btn btn-danger" %>
         </div>
       </div>
