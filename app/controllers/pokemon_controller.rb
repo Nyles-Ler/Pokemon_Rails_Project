@@ -8,4 +8,8 @@ class PokemonController < ApplicationController
     # Finds a specific Pokemon by its ID from the params and assigns it to the @pokemon instance variable
     @pokemon = Pokemon.find(params[:id])
   end
+
+  def about
+
+  end
 end
