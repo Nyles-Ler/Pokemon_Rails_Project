@@ -1,3 +1,72 @@
-<h1>About Pokémon Rails Explorer</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mb-4">About Pokemon Rails Explorer</h1>
 
-<p>This page will describe the project and its data sources.</p>
+      <div class="card mb-4">
+        <div class="card-body">
+
+          <h3>Project Overview</h3>
+
+          <p>
+            Pokemon Rails Explorer is a Ruby on Rails applicationn that allows users to browse Pokemon, view more detailed information, and rear user reviews generated with Faker.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+
+          <h3>Data Sources</h3>
+
+          <ul>
+            <li><strong>PokeAPI</strong> - Pokemon names, stats, types, abilities, and moves.</li>
+            <p>The primary data source will be PokeAPI, which provides Pokemon data in JSON format through a REST API. The data includes Pokemon names, Pokedex numbers, physical attributes, abilities, moves, types, and moves. The API returns structured JSON objects that can be parsed and imported into the application using the Rails seed script.</p>
+            <li><strong>pokemon.json</strong> - Pokemon sprite images.</li>
+            <p>The secondary data source will be pokemon.json GitHub repository. This repository contains Pokemon data in JSON format and will be used add pokemon sprite images to the application. Since both data sources use Pokemon as the primary entity, they can be easily integrated using each Pokemons Pokedex number as a unique identifier.</p>
+            <li><strong>Faker</strong> - Random usernames, ratings, and review comments.</li>
+            <p>The third data source will be the Faker gem, it will be used to generate realistic user reviews and usernames. This allows the application to demonstrate one-to-many relationships while providing additional content for testing and displaying associated records.S</p>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+
+          <h3>Database ERD</h3>
+
+          <p>
+            This Entity Relationship Diagram shows the database
+            structure and relationships used throughout the application.
+          </p>
+
+          <%= image_tag "erd.png",
+              class: "img-fluid rounded border",
+              style: "max-width: 800px text-align",
+              alt: "Pokemon Rails Explorer ERD" %>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+
+          <h3>Technologies Used</h3>
+
+          <ul>
+            <li>Ruby on Rails</li>
+            <li>Bootstrap</li>
+            <li>SQLite</li>
+            <li>Active Record</li>
+            <li>Importmap</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

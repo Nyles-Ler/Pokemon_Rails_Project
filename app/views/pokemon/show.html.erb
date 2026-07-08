@@ -1,25 +1,94 @@
-<h1><%= @pokemon.name %></h1>
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="card mb-4">
+      <div class="card-body">
+        <!-- ERB -->
+        <%= image_tag @pokemon.sprite_url,
+            class: "img-fluid mb-3",
+            style: "max-height: 250px;",
+            alt: @pokemon.name %>
 
-<%= image_tag @pokemon.sprite_url, alt: @pokemon.name, width: 200 %>
+        <h2><%= @pokemon.name %></h2>
 
-<p><strong>Pokedex Number:</strong> <%= @pokemon.pokedex_number %></p>
-<p><strong>Height:</strong> <%= @pokemon.height %></p>
-<p><strong>Weight:</strong> <%= @pokemon.weight %></p>
-<p><strong>Base Experience:</strong> <%= @pokemon.base_experience %></p>
+        <p class="text-muted">
+          <!-- ERB -->
+          #<%= @pokemon.pokedex_number.to_s.rjust(3, "0") %>
+        </p>
 
-<p>
-  <strong>Types:</strong>
-  <%= @pokemon.types.map(&:name).join(", ") %>
-</p>
+      </div>
+    </div>
+  </div>
 
-</h2>Reviews</h2>
+  <div class="col-md-8">
+    <div class="card mb-4">
+      <div class="card-body">
 
-<% @pokemon.reviews.each do |review| %>
-  <p>
-    <strong><%= review.username %></strong>
-    rated this <%= review.rating %>/5
-  </p>
-  <p><%= review.comment %></p>
-<% end %>
+        <h3>Pokemon Information</h3>
 
-<p><%= link_to "Back to all Pokémon", pokemon_index_path %></p>
+        <!-- Using basic Bootstrap table striped -->
+        <table class="table table-striped">
+
+          <tr>
+            <th>Height</th>
+            <!-- ERB -->
+            <td><%= @pokemon.height %></td>
+          </tr>
+
+          <tr>
+            <th>Weight</th>
+            <!-- ERB -->
+            <td><%= @pokemon.weight %></td>
+          </tr>
+
+          <tr>
+            <th>Base Experience</th>
+            <!-- ERB -->
+            <td><%= @pokemon.base_experience %></td>
+          </tr>
+
+          <tr>
+            <th>Types</th>
+            <td>
+              <% @pokemon.types.each do |type| %>
+                <span class="badge bg-secondary"><%= type.name %></span>
+              <% end %>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <h3>User Reviews</h3>
+
+        <% @pokemon.reviews.each do |review| %>
+
+          <!-- Creates a bottom border between each review -->
+          <div class="border-bottom mb-3 pb-3">
+
+            <!-- ERB -->
+            <strong><%= review.username %></strong>
+
+            <!-- Bootstrap badge with yellow background -->
+            <span class="badge bg-warning text-dark">
+              <!-- ERB -->
+              <%= review.rating %>/5
+            </span>
+
+            <p class="mt-2">
+              <!-- ERB -->
+              <%= review.comment %>
+            </p>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- ERB -->
+    <%= link_to "← Back to Pokemon", pokemon_index_path, class: "btn btn-danger mt-3" %>
+  </div>
+</div>

@@ -1,9 +1,45 @@
-<h1>Pokemon Rails Explorer</h1>
+<!-- Centers text and adds margin below -->
+<div class="text-center mb-5">
+  <!-- Larger text dispplay and bold weight -->
+  <h1 class="display-4 fw-bold">Pokemon Rails Explorer</h1>
+  <!-- Larger font and gray text -->
+  <p class="lead text-muted">
+    Browse Pokemon imported from PokeAPI, pokemon.json, and Faker!
+  </p>
+</div>
 
-<ul>
-  <% @pokemon.each do |pokemon| %>
-    <li>
-      <%= link_to pokemon.name, pokemon_path(pokemon) %>
-    </li>
+<!-- Creates a Bootstrap row with spacing between columns or cards -->
+<div class="row g-4">
+  <% @pokemon.each do |pokemon|%>
+    <!-- Small screens are 2 per row, Medium are 3 per row, Large are 4 per row -->
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <!-- Using Bootstrap card, with each having the same height, small box shadow, and centered text -->
+      <div class="card h-100 shadow-sm text-center">
+        <!-- Using Bootstrap card body to add padding -->
+        <div class="card-body">
+          <!-- ERB Rails helper to generate image, automatic image scaling with a margin bottom -->
+          <%= image_tag pokemon.sprite_url, alt: pokemon.name, class: "img-fluid mb-3", style: "max-height: 140px;" %>
+
+          <!-- Using Bootstrap card title -->
+          <h5 class="card-title"><%= pokemon.name %></h5>
+
+          <p class="text-muted">
+            <!-- ERB -->
+            #<%= pokemon.pokedex_number.to_s.rjust(3, "0") %>
+          </p>
+
+          <p>
+            <!-- Loop for associated types -->
+            <% pokemon.types.each do |type| %>
+            <!-- Using Bootstrap badge to style autmatically-->
+              <span class="badge bg-secondary"><%= type.name %></span>
+            <% end %>
+          </p>
+
+          <!-- ERB Using Bootstrap to create a button with red theme -->
+          <%= link_to "View Details", pokemon_path(pokemon), class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
