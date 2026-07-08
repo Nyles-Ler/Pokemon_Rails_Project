@@ -1,7 +1,10 @@
 class PokemonController < ApplicationController
   def index
-    # Retrieves all Pokemon records from the database and assigns them to the @pokemon instance variable
-    @pokemon = Pokemon.all
+    if params[:search].present?
+      @pokemon = Pokemon.where("name LIKE ?", "%#{params[:search]}%")
+    else
+      @pokemon = Pokemon.all
+    end
   end
 
   def show
