@@ -1,4 +1,6 @@
+# 1.3 AR Models, 1.5 Two or more associations, 1.6 Validations
 class Review < ApplicationRecord
+  # A review belongs to one pokemon -
   belongs_to :pokemon
 
   validates :username, presence: true

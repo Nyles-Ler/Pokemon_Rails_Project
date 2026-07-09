@@ -1,5 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# Feature 1.7 - Data Sources
+# Imports Pokemon data from PokeAPI, sprite URLs from pokemon.json, and fake reviews using Faker
 
 # Lets ruby open a URL like a file
 require "open-uri"

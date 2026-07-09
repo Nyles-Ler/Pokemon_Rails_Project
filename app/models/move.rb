@@ -1,3 +1,4 @@
+# 1.3 AR Models, 1.5 Two or more associations, 1.6 Validations
 class Move < ApplicationRecord
   has_many :pokemon_moves
   has_many :pokemons, through: :pokemon_moves
