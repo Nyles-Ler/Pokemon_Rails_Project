@@ -1,0 +1,35 @@
+<!-- Feature 3.4 - Hierarchical Collection Navigation -->
+<!-- Displays Pokemon that belong to the selected Type -->
+
+<h1 class="mb-4"><%= @type.name %> Pokemon</h1>
+
+<p>
+  <%= link_to "← Back to all Types", types_path, class: "btn btn-outline-danger mb-4" %>
+</p>
+
+<div class="row g-4">
+  <% @pokemon.each do |pokemon| %>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm text-center">
+        <div class="card-body">
+
+          <%= image_tag pokemon.sprite_url,
+              alt: pokemon.name,
+              class: "img-fluid mb-3",
+              style: "max-height: 140px;" %>
+
+          <h2 class="h5 card-title"><%= pokemon.name %></h2>
+
+          <p class="text-muted">
+            #<%= pokemon.pokedex_number.to_s.rjust(3, "0") %>
+          </p>
+
+          <%= link_to "View Details",
+              pokemon_path(pokemon),
+              class: "btn btn-danger" %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

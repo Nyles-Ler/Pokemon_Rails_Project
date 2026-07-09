@@ -21,7 +21,7 @@
           <%= image_tag pokemon.sprite_url, alt: pokemon.name, class: "img-fluid mb-3", style: "max-height: 140px;" %>
 
           <!-- Using Bootstrap card title -->
-          <h5 class="card-title"><%= pokemon.name %></h5>
+          <h2 class="card-title"><%= pokemon.name %></h2>
 
           <p class="text-muted">
             #<%= pokemon.pokedex_number.to_s.rjust(3, "0") %>

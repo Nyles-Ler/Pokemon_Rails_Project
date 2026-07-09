@@ -6,7 +6,7 @@
       <div class="card mb-4">
         <div class="card-body">
 
-          <h3>Project Overview</h3>
+          <h2>Project Overview</h2>
 
           <p>
             Pokemon Rails Explorer is a Ruby on Rails applicationn that allows users to browse Pokemon, view more detailed information, and rear user reviews generated with Faker.
@@ -18,15 +18,35 @@
       <div class="card mb-4">
         <div class="card-body">
 
-          <h3>Data Sources</h3>
+          <h2>Data Sources</h2>
 
           <ul>
-            <li><strong>PokeAPI</strong> - Pokemon names, stats, types, abilities, and moves.</li>
-            <p>The primary data source will be PokeAPI, which provides Pokemon data in JSON format through a REST API. The data includes Pokemon names, Pokedex numbers, physical attributes, abilities, moves, types, and moves. The API returns structured JSON objects that can be parsed and imported into the application using the Rails seed script.</p>
-            <li><strong>pokemon.json</strong> - Pokemon sprite images.</li>
-            <p>The secondary data source will be pokemon.json GitHub repository. This repository contains Pokemon data in JSON format and will be used add pokemon sprite images to the application. Since both data sources use Pokemon as the primary entity, they can be easily integrated using each Pokemons Pokedex number as a unique identifier.</p>
-            <li><strong>Faker</strong> - Random usernames, ratings, and review comments.</li>
-            <p>The third data source will be the Faker gem, it will be used to generate realistic user reviews and usernames. This allows the application to demonstrate one-to-many relationships while providing additional content for testing and displaying associated records.S</p>
+            <li class="mb-3">
+              <strong>PokeAPI</strong> – Pokemon names, stats, types, abilities, and moves.
+              <p class="mb-0 mt-1">
+                The primary data source provides Pokemon data in JSON format through a REST API.
+                It includes Pokemon names, Pokedex numbers, physical attributes, abilities,
+                moves, and types. The data is imported into the application using the Rails
+                seed script.
+              </p>
+            </li>
+
+            <li class="mb-3">
+              <strong>pokemon.json</strong> – Pokemon sprite images.
+              <p class="mb-0 mt-1">
+                This GitHub repository provides Pokemon sprite images. Since both data sources
+                use the Pokedex number as a unique identifier, the sprite images can be matched
+                to the Pokemon imported from PokeAPI.
+              </p>
+            </li>
+
+            <li>
+              <strong>Faker</strong> – Random usernames, ratings, and review comments.
+              <p class="mb-0 mt-1">
+                Faker is used to generate realistic usernames and reviews, providing sample
+                data to demonstrate one-to-many relationships and populate the application.
+              </p>
+            </li>
           </ul>
 
         </div>
@@ -35,7 +55,7 @@
       <div class="card mb-4">
         <div class="card-body">
 
-          <h3>Database ERD</h3>
+          <h2>Database ERD</h2>
 
           <p>
             This Entity Relationship Diagram shows the database
@@ -43,8 +63,8 @@
           </p>
 
           <%= image_tag "erd.png",
-              class: "img-fluid rounded border",
-              style: "max-width: 800px text-align",
+              class: "img-fluid rounded border d-block mx-auto",
+              style: "max-width: 800px",
               alt: "Pokemon Rails Explorer ERD" %>
 
         </div>
@@ -53,7 +73,7 @@
       <div class="card">
         <div class="card-body">
 
-          <h3>Technologies Used</h3>
+          <h2>Technologies Used</h2>
 
           <ul>
             <li>Ruby on Rails</li>
